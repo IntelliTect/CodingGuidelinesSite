@@ -1,2 +1,2 @@
-##JavaScript##
+## JavaScript
 JavaScript Guidelines haven't been formatted yet for this webpage. Instead see this [google doc](https://docs.google.com/document/d/1_LEucqeAg7wtKvuI4dWS79ntEgJ2GKb-amr0k6xLS3Q/edit?pli=1#)
