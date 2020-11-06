@@ -31,9 +31,9 @@ jobs:
     # A regular expression of files to include in our find and replace
           include: _config.yml
     # The string we want to replace
-          find: "/CodingGuidelines"
+          find: '/CodingGuidelines"'
      # The new string to replace with
-          replace: "/CodingGuidelinesSite"
+          replace: '/CodingGuidelinesSite"'
           
       - name: Create commit and push
         run: |
