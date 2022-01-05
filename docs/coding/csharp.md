@@ -1,8 +1,9 @@
 # C# Guidelines
 
-## Sections
+<details>
+  <summary>Click to expand!</summary>
 
-- [Coding](#coding)
+     ## Sections
      - [Arrays](#arrays)
      - [Assemblies](#assemblies)
      - [Branches](#branches)
@@ -32,23 +33,16 @@
      - [Types](#types)
      - [Variables](#variables)
      - [Whitespace](#whitespace)
+  </details>
 
-# Guidelines
-
-
-
-
-
-## ***Coding***
-
-### Arrays
+## Arrays
 - :grey_question: CONSIDER checking the array length before indexing into an array rather than assuming the length.
 - :grey_question: CONSIDER using the index from end operator (^) rather than Length - 1 with C# 8.0 or higher.
 - :heavy_check_mark: DO use parameter arrays when a method can handle any number—including zero—of additional arguments.
 - :grey_question: CONSIDER checking for null before accessing an array rather than assuming there is an array instance.
 - :no_entry: AVOID unsafe array covariance. Instead, CONSIDER converting the array to the read-only interface IEnumerable<T>, which can be safely converted via covariant conversions.
 
-### Assemblies
+## Assemblies
 - :grey_question: CONSIDER applying AssemblyFileVersionAttribute and AssemblyCopyrightAttribute to provide additional information about the assembly.
 - :heavy_check_mark: DO apply the AttributeUsageAttribute class to custom attributes.
 - :heavy_check_mark: DO provide constructor parameters to initialize properties on attributes with required properties. Each parameter should have the same name (albeit with different casing) as the corresponding property.
@@ -57,7 +51,7 @@
 - :heavy_check_mark: DO apply the following information assembly attributes: System.Reflection.AssemblyCompanyAttribute, System.Reflection.AssemblyCopyrightAttribute, System.Reflection.AssemblyDescriptionAttribute, and System.Reflection.AssemblyProductAttribute.
 - :heavy_check_mark: DO name custom attribute classes with the suffix Attribute.
 
-### Branches
+## Branches
 - :heavy_check_mark: DO use the while loop when the number of loop iterations is not known in advance and a counter is not needed.
 - :x: DO NOT use continue as the jump statement that exits a switch section. This is legal when the switch is inside a loop, but it is easy to become confused about the meaning of break in a later switch section.
 - :heavy_check_mark: DO use the for loop when the number of loop iterations is known in advance and the “counter” that gives the number of iterations executed is needed in the loop.
@@ -65,7 +59,7 @@
 - :grey_question: CONSIDER using an if-else statement instead of an overly complicated conditional expression.
 - :no_entry: AVOID using goto.
 
-### Classes
+## Classes
 - :heavy_check_mark: DO use PascalCasing for all class names.
 - :heavy_check_mark: DO name classes with nouns or noun phrases.
 - :heavy_check_mark: DO place multiple generic semantically equivalent classes into a single file if they differ only by the number of generic parameters.
@@ -74,17 +68,17 @@
 - :heavy_check_mark: DO implement IDisposable to support possible deterministic finalization on classes with finalizers.
 - :heavy_check_mark: DO pass the instance of the class as the value of the sender for nonstatic events.
 
-### Comments
+## Comments
 - :heavy_check_mark: DO provide XML comments on public APIs when they provide more context than the API signature alone. This includes member descriptions, parameter descriptions, and examples of calling the API.
 - :heavy_check_mark: DO favor writing clearer code over entering comments to clarify a complicated algorithm.
 - :x: DO NOT use comments unless they describe something that is not obvious to someone other than the developer who wrote the code.
 
-### Conversions
+## Conversions
 - :x: DO NOT provide an implicit conversion operator if the conversion is lossy.
 - :no_entry: AVOID direct enum/string conversions where the string must be localized into the user’s language.
 - :x: DO NOT throw exceptions from implicit conversions.
 
-### Dispose()
+## Dispose()
 - :heavy_check_mark: DO unregister any AppDomain.ProcessExit events during dispose.
 - :heavy_check_mark: DO invoke a base class’s Dispose() method from the Dispose(bool disposing) method if one exists.
 - :heavy_check_mark: DO implement IDisposable on types that own disposable fields (or properties) and dispose of those instances.
@@ -96,7 +90,7 @@
 - :heavy_check_mark: DO ensure that Dispose() is idempotent (it should be possible to call Dispose() multiple times).
 - :heavy_check_mark: DO call System.GC.SuppressFinalize() from Dispose() to avoid repeating resource cleanup and delaying garbage collection on an object.
 
-### Enums
+## Enums
 - :grey_question: CONSIDER adding new members to existing enums, but keep in mind the compatibility risk.
 - :no_entry: AVOID creating enums that represent an “incomplete” set of values, such as product version numbers.
 - :no_entry: AVOID creating flag enums where the zero value has a meaning other than “no flags are set.”
@@ -107,14 +101,14 @@
 - :grey_question: CONSIDER using the Enumerable.Empty<T>() method instead.
 - :heavy_check_mark: DO provide a None value equal to 0 for all flag enums.
 
-### Equality
+## Equality
 - :no_entry: AVOID overriding the equality-related members on mutable reference types or if the implementation would be significantly slower with such overriding.
 - :no_entry: AVOID using the equality comparison operator (==) from within the implementation of the == operator overload.
 - :heavy_check_mark: DO implement all the equality-related methods when implementing IEquitable.
 - :heavy_check_mark: DO override the equality operators (Equals(), ==, and !=) and GetHashCode() on value types if equality is meaningful. (Also consider implementing the IEquatable<T> interface.)
 - :heavy_check_mark: DO ensure that custom comparison logic produces a consistent “total order.”
 
-### Exceptions
+## Exceptions
 - :heavy_check_mark: DO use throw; rather than throw <exception object> inside a catch block.
 - :x: DO NOT throw exceptions from finalizer methods.
 - :grey_question: CONSIDER registering an unhandled exception event handler for debugging, logging, and emergency shutdown purposes.
@@ -153,7 +147,7 @@
 - :heavy_check_mark: DO provide a parameterless constructor on all custom exception types. Also provide constructors that take a message and an inner exception.
 - :heavy_check_mark: DO create a new exception type to communicate a unique program error that cannot be communicated using an existing CLR exception and that can be programmatically handled in a different way than any other existing CLR exception type.
 
-### Fields
+## Fields
 - :heavy_check_mark: DO use public static readonly modified fields for predefined object instances prior to C# 6.0.
 - :no_entry: AVOID changing a public readonly modified field in pre-C# 6.0 to a read-only automatically implemented property in C# 6.0 (or later) if version API compatibility is required.
 - :no_entry: AVOID publicly exposed nested types. The only exception is if the declaration of such a type is unlikely or pertains to an advanced customization scenario.
@@ -165,21 +159,21 @@
 - :heavy_check_mark: DO declare all instance fields as private (and expose them via a property).
 - :grey_question: CONSIDER initializing static fields inline rather than explicitly using static constructors or declaration assigned values.
 
-### Files
+## Files
 - :grey_question: CONSIDER organizing the directory hierarchy for source code files to match the namespace hierarchy.
 - :grey_question: CONSIDER creating a folder structure that matches the namespace hierarchy.
 - :x: DO NOT place more than one class in a single source file.
 
-### Flags
+## Flags
 - :grey_question: CONSIDER using the default 32-bit integer type as the underlying type of an enum. Use a smaller type only if you must do so for interoperability; use a larger type only if you are creating a flags enum with more than 32 flags.
 - :grey_question: CONSIDER providing special values for commonly used combinations of flags.
 - :heavy_check_mark: DO use powers of 2 to ensure that all flag combinations are represented uniquely.
 
-### Increment/decrement
+## Increment/decrement
 - :no_entry: AVOID confusing usage of the increment and decrement operators.
 - :heavy_check_mark: DO be cautious when porting code between C, C++, and C# that uses increment and decrement operators; C and C++ implementations need not follow the same rules as C#.
 
-### Interfaces
+## Interfaces
 - :grey_question: CONSIDER interfaces over abstract classes for polymorphic behavior starting with in C# 8.0/.NET Core 3.0 and abstract classes prior to C# 8.0.
 - :x: DO NOT add abstract members to an interface that has already been published.
 - :no_entry: AVOID using “marker” interfaces with no members; use attributes instead.
@@ -188,7 +182,7 @@
 - :heavy_check_mark: DO use extension methods when the interface providing the polymorphic behavior is not under your control.
 - :grey_question: CONSIDER using extension methods or an additional interface in place of default interface members when adding methods to a published interface.
 
-### Methods
+## Methods
 - :heavy_check_mark: DO use a collection’s Count property (if available) instead of calling the System.Linq.Enumerable.Count() method.
 - :x: DO NOT throw exceptions from implementations of GetHashCode(), Equals(), ==, and !=.
 - :heavy_check_mark: DO use System.Linq.Enumerable.Any() rather than calling patents.Count() when checking whether there are more than zero items.
@@ -209,7 +203,7 @@
 - :x: DO NOT call an OrderBy() following a prior OrderBy() method call. Use ThenBy() to sequence items by more than one value.
 - :heavy_check_mark: DO give methods names that are verbs or verb phrases.
 
-### Miscellaneous
+## Miscellaneous
 - :heavy_check_mark: DO use query expression syntax to make queries easier to read, particularly if they involve complex from, let, join, or group clauses.
 - :heavy_check_mark: DO treat parameter names as part of the API, and avoid changing the names if version compatibility between APIs is important.
 - :heavy_check_mark: DO name the source file with the name of the public type it contains.
@@ -247,12 +241,12 @@
 - :heavy_check_mark: DO use camelCasing for local variable names.
 - :heavy_check_mark: DO use camelCasing for parameter names.
 
-### Namespaces
+## Namespaces
 - :heavy_check_mark: DO use PascalCasing for namespace names.
 - :heavy_check_mark: DO prefix namespace names with a company name to prevent namespaces from different companies having the same name.
 - :heavy_check_mark: DO use a stable, version-independent product name at the second level of a namespace name.
 
-### Parameters
+## Parameters
 - :heavy_check_mark: DO provide constructor optional parameters and/or convenience constructor overloads that initialize properties with good defaults.
 - :heavy_check_mark: DO provide simple method overloads that have a small number of required parameters.
 - :no_entry: AVOID providing constructor parameters to initialize attribute properties corresponding to the optional arguments (and, therefore, avoid overloading custom attribute constructors).
@@ -260,7 +254,7 @@
 - :grey_question: CONSIDER organizing overloads from the simplest to the most complex.
 - :heavy_check_mark: DO provide good defaults for all parameters where possible.
 
-### Properties
+## Properties
 - :heavy_check_mark: DO use properties for simple access to simple data with simple computations.
 - :heavy_check_mark: DO favor automatically implemented properties over properties with simple backing fields when no additional logic is required.
 - :grey_question: CONSIDER using the same casing on a property’s backing field as that used in the property, distinguishing the backing field with an “_” prefix. Do not, however, use two underscores; identifiers beginning with two underscores are reserved for the use of t
@@ -284,28 +278,28 @@
 - :heavy_check_mark: DO assign non-nullable reference-type properties before instantiation completes.
 - :heavy_check_mark: DO implement non-nullable read/write reference fully implemented properties with a nullable backing field, a null-forgiveness operator when returning the field from the getter, and non-null validation in the property setter.
 
-### Strings
+## Strings
 - :heavy_check_mark: DO favor composite formatting over use of the addition operator for concatenating strings when localization is a possibility.
 
-### Structs
+## Structs
 - :x: DO NOT define a struct unless it logically represents a single value, consumes 16 bytes or less of storage, is immutable, and is infrequently boxed.
 - :heavy_check_mark: DO ensure that the default value of a struct is valid; encapsulation cannot prevent obtaining the default “all zero” value of a struct.
 
-### Synchronization
+## Synchronization
 - :no_entry: AVOID synchronization on simple reading or writing of values no bigger than a native (pointer-size) integer, as such operations are automatically atomic.
 - :heavy_check_mark: DO encapsulate mutable static data in public APIs with synchronization logic.
 - :x: DO NOT request exclusive ownership of the same two or more synchronization targets in different orders.
 - :no_entry: AVOID using the MethodImplAttribute for synchronization.
 - :heavy_check_mark: DO declare a separate, read-only synchronization variable of type object for the synchronization target.
 
-### Tasks
+## Tasks
 - :heavy_check_mark: DO cancel unfinished tasks rather than allowing them to run during application shutdown.
 - :heavy_check_mark: DO cancel unfinished tasks rather than allowing them to run during application shutdown.
 - :heavy_check_mark: DO inform the task factory that a newly created task is likely to be long-running so that it can manage it appropriately.
 - :heavy_check_mark: DO use tasks and related APIs in favor of System.Theading classes such as Thread and ThreadPool.
 - :heavy_check_mark: DO use TaskCreationOptions.LongRunning sparingly.
 
-### Threads
+## Threads
 - :no_entry: AVOID writing programs that produce unhandled exceptions on any thread.
 - :x: DO NOT assume that all threads will observe all side effects of operations on shared memory in a consistent order.
 - :no_entry: AVOID calling Thread.Sleep() in production code.
@@ -318,7 +312,7 @@
 - :x: DO NOT make an unwarranted assumption that any operation that is seemingly atomic in single-threaded code will be atomic in multithreaded code.
 - :no_entry: AVOID all race conditions—that is, conditions where program behavior depends on how the operating system chooses to schedule threads.
 
-### ToString()
+## ToString()
 - :grey_question: CONSIDER returning a unique string from ToString() so as to identify the object instance.
 - :heavy_check_mark: DO provide an overloaded ToString(string format) or implement IFormattable if the return value requires formatting or is culture-sensitive (e.g., DateTime).
 - :heavy_check_mark: DO override ToString() whenever useful developer-oriented diagnostic strings can be returned.
@@ -326,7 +320,7 @@
 - :x: DO NOT return an empty string or null from ToString().
 - :x: DO NOT throw exceptions or make observable side effects (change the object state) from ToString().
 
-### Types
+## Types
 - :no_entry: AVOID creating value types that consume more than 16 bytes of memory.
 - :heavy_check_mark: DO make value types immutable.
 - :no_entry: AVOID mutable value types.
@@ -340,11 +334,11 @@
 - :no_entry: AVOID using implicitly typed local variables unless the data type of the assigned value is obvious.
 - :grey_question: CONSIDER using System.EventHandler<T> instead of manually creating new delegate types for event handlers unless the parameter names of a custom type offer significant clarification.
 
-### Variables
+## Variables
 - :grey_question: CONSIDER using var any time that the initialization of the variable clearly shows what the variable will contain.
 - :grey_question: CONSIDER using target-typed new expressions any time that the instance clearly shows its type.
 
-### Whitespace
+## Whitespace
 - :no_entry: AVOID omitting braces, except for the simplest of single-line if statements.
 - :heavy_check_mark: DO use parentheses to make code more readable, particularly if the operator precedence is not clear to the casual reader.
 
