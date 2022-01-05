@@ -1,7 +1,7 @@
 # C# Guidelines
 
 <details>
-  <summary>Click to expand!</summary>
+  <summary>Table of</summary>
 
      ## Sections
      - [Arrays](#arrays)

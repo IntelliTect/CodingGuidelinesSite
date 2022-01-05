@@ -20,7 +20,7 @@ baseurl: "/CodingGuidelinesSite" # the subpath of your site, e.g. /blog
 url: "https://intellitect.github.io/" # the base hostname & protocol for your site, e.g. http://example.com
 
 # Build settings
-markdown: kramdown
+markdown: GFM
 theme: jekyll-theme-midnight
 plugins:
   - jekyll-feed
