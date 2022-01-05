@@ -1,41 +1,19 @@
 # C# Guidelines
 
-{::options parse_block_html="true" /}  # Sets parse_block_html option to true
-<details>
-  <summary>Table of</summary>
+{::options parse_block_html="true" /}
 
-     ## Sections
-     - [Arrays](#arrays)
-     - [Assemblies](#assemblies)
-     - [Branches](#branches)
-     - [Classes](#classes)
-     - [Comments](#comments)
-     - [Conversions](#conversions)
-     - [Dispose()](#dispose)
-     - [Enums](#enums)
-     - [Equality](#equality)
-     - [Exceptions](#exceptions)
-     - [Fields](#fields)
-     - [Files](#files)
-     - [Flags](#flags)
-     - [Increment/decrement](#incrementdecrement)
-     - [Interfaces](#interfaces)
-     - [Methods](#methods)
-     - [Miscellaneous](#miscellaneous)
-     - [Namespaces](#namespaces)
-     - [Parameters](#parameters)
-     - [Properties](#properties)
-     - [Strings](#strings)
-     - [Structs](#structs)
-     - [Synchronization](#synchronization)
-     - [Tasks](#tasks)
-     - [Threads](#threads)
-     - [ToString()](#tostring)
-     - [Types](#types)
-     - [Variables](#variables)
-     - [Whitespace](#whitespace)
-  </details>
-{::options parse_block_html="false" /} # Sets parse_block_html option to false
+<details>
+<summary markdown="span">Table of contents:</summary>
+
+     <h2 id="sections">Sections <a href="#sections"><i class="fa fa-link" aria-hidden="true"></i></a></h2>
+     <ul>
+      <li> <a href="#arrays">Arrays</a></li>
+      <li> <a href="#branches">Branches</a></li>
+      <li> <a href="#classes">Classes</a></li>
+     </ul>
+</details>
+
+{::options parse_block_html="false" /}
 
 ## Arrays
 - :grey_question: CONSIDER checking the array length before indexing into an array rather than assuming the length.
