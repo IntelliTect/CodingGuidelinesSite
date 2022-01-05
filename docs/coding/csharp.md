@@ -1,5 +1,6 @@
 # C# Guidelines
 
+{::options parse_block_html="true" /}  # Sets parse_block_html option to true
 <details>
   <summary>Table of</summary>
 
@@ -34,6 +35,7 @@
      - [Variables](#variables)
      - [Whitespace](#whitespace)
   </details>
+{::options parse_block_html="false" /} # Sets parse_block_html option to false
 
 ## Arrays
 - :grey_question: CONSIDER checking the array length before indexing into an array rather than assuming the length.
