@@ -159,7 +159,7 @@
   <guideline key="Ch02_bd492fc" severity="DO" section="Coding" subsection="Miscellaneous">"DO use the C# keyword rather than the BCL name when specifying a data type (e.g., string rather than String)."</guideline>
   <guideline key="Ch01_9cc676b" severity="DO NOT" section="Coding" subsection="Miscellaneous">"DO NOT use Hungarian notation (that is, do not encode the type of a variable in its name)."</guideline>
   <guideline key="Ch01_1724fff" severity="DO NOT" section="Coding" subsection="Miscellaneous">DO NOT use abbreviations or contractions within identifier names.</guideline>
-  <guideline key="Ch01_1f465b0" severity="DO NOT" section="Coding" subsection="Miscellaneous">"DO NOT use any acronyms unless they are widely accepted, and even then use them consistently."</guideline>
+  <guideline key="Ch01_1f465b0" severity="DO NOT" section="Coding" subsection="Miscellaneous">"DO NOT use any acronyms unless they are widely accepted, in which case use them consistently."</guideline>
   <guideline key="Ch01_a611579" severity="DO" section="Coding" subsection="Miscellaneous">"DO capitalize both characters in two-character acronyms, except for the first word of a camelCased identifier."</guideline>
   <guideline key="Ch01_7565e63" severity="DO" section="Coding" subsection="Miscellaneous">"DO capitalize only the first character in acronyms with three or more characters, except for the first word of a camelCased identifier."</guideline>
   <guideline key="Ch01_5fbe0b8" severity="DO NOT" section="Coding" subsection="Miscellaneous">DO NOT capitalize any of the characters in acronyms at the beginning of a camelCased identifier.</guideline>
